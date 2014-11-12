@@ -2,16 +2,48 @@
 <html>
 <head>
 <meta charset="utf8">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/app.css">
 
+<script type="text/javascript">
+window.paperscript = {};
+</script>
+<script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="lib/paper/dist/paper-full.js"></script>
 <script type="text/paperscript" canvas="lighttable" src="ps/table.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+	$('.btn.next').on('click',function() {
+		paperscript.next();
+	});
+});
+
+</script>
 </head>
 <body>
-	<canvas id="lighttable" resize></canvas>
-	<ul class="tools">
-		<li>
-			<a href="#pen" class="pen">pen</a>
-		</li>
-	</ul>
+<section class="container">
+<div class="row">
+	<div class="col-md-12">
+		<button class="btn undo">undo</button>
+		<button class="btn redo">redo</button>
+		<button class="btn next">next frame</button>
+	</div>
+	
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<canvas id="lighttable" width="640" height="480"></canvas>
+	</div>
+	<div class="col-md-4">
+		<ul class="tools">
+			<li>
+				<a href="#pen" class="pen">pen</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</section>
 </body>
 </html>
