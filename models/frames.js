@@ -7,7 +7,7 @@ var frameSchema = new Schema({
     user: Number,
     project: Number,
     date: { type: Date, default: Date.now },
-    segments: Array
+    paths: Array
 });
 
 module.exports = mongoose.model('frame', frameSchema);

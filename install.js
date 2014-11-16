@@ -163,7 +163,7 @@ db.connect('tingodb://'+__dirname+'/data')
             // add frames to project pid
             for (var i = 0; i < json.length; i++) {
                 var seg = json[i][1].children[0][1].segments;
-                console.log('install: frame %d has %d segments', i, seg.length);
+                console.log('install: frame %d has 1 path and %d segments', i, seg.length);
                 db.frames.create(i, seg, pid);
             };
         })

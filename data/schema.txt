@@ -1,0 +1,15 @@
+schema
+
+projects
+ title
+ about
+ url
+ user
+ status
+ date
+
+frames
+ number
+ user
+ date
+ paths
