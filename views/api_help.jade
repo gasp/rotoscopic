@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 API help
+
+  p Access the api by calling 
+    span.code /api
+  p The api allows to access, add, remove and update 
+  | users, projects and frames.
+  | What you are really looking for is frames, 
+  | they contain the segments.
+
+  p
+  |  this is a restful api, access to 
+  span.code /api/u
+  |  for users, 
+  span.code /api/p
+  |  for projects and 
+  span.code /api/f
+  |  for frames.
+
+  p For further info, please contact 
+    each a in admins
+      span= a.name +': '
+      a(href='mailto:'+a.email)= a.email
+      
