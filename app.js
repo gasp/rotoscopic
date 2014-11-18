@@ -36,12 +36,24 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
+
+    console.log('+ loading application in development mode');
+    console.log('+ verbose error messages');
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
             error: err
         });
+    });
+    console.log('+ pretty jade html');
+    app.locals.pretty = true;
+
+    app.set('db_path', 'tingodb://'+__dirname+'/data');
+    console.log('+ %s', app.get('db_path'));
+    mongoose.connect(app.get('db_path'), function (err) {
+        // if we failed to connect, abort
+        if (err) throw err;
     });
 }
 
