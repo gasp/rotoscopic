@@ -1,9 +1,12 @@
 {
   "name": "roto",
   "version": "0.0.1",
+  "description": "rotoscopic onionsceen drawing tool",
+  "main": "src/index.html",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "gulp test"
   },
   "dependencies": {
     "lodash": "2.4.x",
@@ -18,5 +21,17 @@
     "tingodb": "0.3.x",
     "tungus": "0.0.2",
     "mongoose": "3.6.11"
-  }
+  },
+  "devDependencies": {
+    "gulp-util": "~2.2.12",
+    "gulp": "latest",
+    "gulp-bower": "0.0.6",
+    "gulp-uglify": "~0.1.0",
+    "gulp-watch": "~0.5.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-less": "latest",
+    "gulp-connect": "2.2.0"
+  },
+  "author": "gasp",
+  "license": "MIT"
 }

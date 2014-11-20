@@ -1,0 +1,26 @@
+{
+  "name": "roto",
+  "version": "0.1.0",
+  "authors": [
+    "gaspard <gaspard@gmail.com>"
+  ],
+  "description": "rotoscopic onionsceen drawing tool",
+  "main": "src/index.html",
+  "keywords": [
+    "rotoscopic",
+    "onionscreen",
+    "drawing"
+  ],
+  "dependencies": {
+    "paper": "0.9.x",
+    "bootstrap": "3.x"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
