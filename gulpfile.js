@@ -6,7 +6,7 @@ var less = require('gulp-less');
 
 gulp.task('bower', function() {
   return bower()
-    .pipe(gulp.dest('lib/'))
+    .pipe(gulp.dest('src/lib/'))
 });
 
 gulp.task('install', ['bower'], function() {
@@ -19,6 +19,7 @@ gulp.task('serve', ['watch'], function () {
       root: './src',
       livereload: true
     });
+  var app = require('./app')
 });
 
 gulp.task('html', function () {
