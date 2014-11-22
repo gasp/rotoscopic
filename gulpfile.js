@@ -17,7 +17,18 @@ gulp.task('install', ['bower'], function() {
 gulp.task('serve', ['watch'], function () {
   connect.server({
       root: './src',
-      livereload: true
+      livereload: true,
+      middleware: function (connect, opt) {
+        console.log('connect version ', connect.version);
+        return [
+          function (req,res,next) {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+            next();
+          }
+        ]
+      }
     });
   var app = require('./app')
 });
