@@ -30,7 +30,12 @@ gulp.task('serve', ['watch'], function () {
         ]
       }
     });
-  var app = require('./app')
+  // serving backend
+  var debug = require('debug')('api');
+  var app = require('./app');
+  var server = app.listen(3000, function() {
+    debug('Express server listening on port ' + server.address().port);
+  });
 });
 
 gulp.task('html', function () {
