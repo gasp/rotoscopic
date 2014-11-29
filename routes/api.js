@@ -9,7 +9,11 @@ var User = require('../models/users');
 var Project = require('../models/projects');
 var Frame = require('../models/frames');
 
-router.use(function (req, res, next) {
+/// enable cors
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Api-version', '1');
     next();
 });

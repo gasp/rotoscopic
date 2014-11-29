@@ -33,13 +33,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
 
-/// enable cors
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
