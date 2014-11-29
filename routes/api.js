@@ -9,6 +9,11 @@ var User = require('../models/users');
 var Project = require('../models/projects');
 var Frame = require('../models/frames');
 
+router.use(function (req, res, next) {
+    res.setHeader('Api-version', '1');
+    next();
+});
+
 router.get('/', function (req, res) {
     User.find({}).select('_id name').exec(function(err, all) {
         res.send(all);
