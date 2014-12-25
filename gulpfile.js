@@ -3,6 +3,12 @@ var gutil = require('gulp-util');
 var bower = require('gulp-bower');
 var connect = require('gulp-connect');
 var less = require('gulp-less');
+var jasmine = require('gulp-jasmine');
+
+gulp.task('tests', function () {
+  return gulp.src('tests/utils.js')
+    .pipe(jasmine());
+});
 
 gulp.task('bower', function() {
   return bower()
