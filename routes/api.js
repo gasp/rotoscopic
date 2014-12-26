@@ -84,6 +84,16 @@ router.get('/p', function (req, res) {
     });
 });
 
+// put a project
+router.put('/p', function (req, res) {
+    req.body.title = req.body.title || "untitled";
+    var project = new Project(req.body);
+    project.save(function(err, frame) {
+        if(err) throw err;
+        res.send(project);
+    });
+});
+
 // get all users
 router.get('/u', function (req, res) {
     User.find({}).select('_id name isadmin').exec(function(err, users) {
