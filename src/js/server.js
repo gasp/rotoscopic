@@ -242,7 +242,7 @@ function serializeData(options) {
 ajax.get = function(url, success){ return ajax({ url: url, success: success }) }
 
 ajax.post = function(url, data, success, dataType){
-  if (type(data) === 'function') dataType = dataType || success, success = data, data = null
+  if (typeof(data) === 'function') dataType = dataType || success, success = data, data = null
   return ajax({ type: 'POST', url: url, data: data, success: success, dataType: dataType })
 }
 
@@ -253,7 +253,7 @@ ajax.getJSON = function(url, success){
 var escape = encodeURIComponent
 
 function serialize(params, obj, traditional, scope){
-  var array = type(obj) === 'array';
+  var array = typeof(obj) === 'array';
   for (var key in obj) {
     var value = obj[key];
 
@@ -261,7 +261,7 @@ function serialize(params, obj, traditional, scope){
     // handle data in serializeArray() format
     if (!scope && array) params.add(value.name, value.value)
     // recurse into nested objects
-    else if (traditional ? (type(value) === 'array') : (type(value) === 'object'))
+    else if (traditional ? (typeof(value) === 'array') : (typeof(value) === 'object'))
       serialize(params, value, traditional, key)
     else params.add(key, value)
   }
@@ -284,3 +284,48 @@ function extend(target) {
   return target;
 }
 
+// selector
+var $$ = function(id) {
+  return document.getElementById(id);
+};
+
+// launching script
+// on load
+
+window.addEventListener("load", function() {
+
+  var getProjectsTitle = function(data) {
+    var titles = [];
+    for (var i = 0; i < data.length; i++) {
+      titles.push(data[i].title);
+    };
+    return titles;
+  };
+  var getProjectsFromJson = function(cb) {
+    ajax.getJSON("/api/p", function (res) {
+      cb(res);
+    });
+  };
+
+  if($$('f')) {
+    $$('f').addEventListener("submit", function(ev) {
+      ajax({
+        url: "/api/p",
+        data: {title: $$('title').value},
+        type: 'PUT',
+        success: function(data) {
+          getProjectsFromJson(function(res) {
+            $$('projects').innerHTML = getProjectsTitle(res).toString();
+            $$('title').value = '';
+          });
+        }
+      });
+      ev.preventDefault();
+      return false;
+    });
+
+    getProjectsFromJson(function(res) {
+      $$('projects').innerHTML = getProjectsTitle(res).toString();
+    });
+  } // if $$('f')
+});
