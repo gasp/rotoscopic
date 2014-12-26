@@ -23,4 +23,11 @@ block content
     each a in admins
       span= a.name +': '
       a(href='mailto:'+a.email)= a.email
-      
+
+  hr
+  section
+    form(action='/api/p', method='post')#f
+      label new project
+        input(name='title')#title
+        button(type='submit') create
+    span#result

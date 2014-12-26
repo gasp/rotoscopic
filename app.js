@@ -32,6 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+app.use('/src/js/server.js', function(req, res, next) {
+    var fs = require('fs');
+    var c = fs.readFileSync(__dirname + '/src/js/server.js', {encoding: 'utf8'});
+    res.send(c);
+});
 
 
 /// catch 404 and forward to error handler
