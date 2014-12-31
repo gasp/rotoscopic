@@ -6,7 +6,7 @@ var less = require('gulp-less');
 var jasmine = require('gulp-jasmine');
 
 gulp.task('tests', function () {
-  return gulp.src('tests/utils.js')
+  return gulp.src('tests/*.js')
     .pipe(jasmine());
 });
 
