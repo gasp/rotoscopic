@@ -61,8 +61,9 @@ if (app.get('env') === 'development') {
             error: err
         });
     });
-    console.log('+ pretty jade html');
-    app.locals.pretty = true;
+    console.log('+ pretty source');
+    app.locals.pretty = true; // jade html
+    app.set('json spaces', 2); // json
 
     app.set('db_path', 'tingodb://'+__dirname+'/data');
     console.log('+ %s', app.get('db_path'));
