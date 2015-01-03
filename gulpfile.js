@@ -16,7 +16,7 @@ gulp.task('bower', function() {
 });
 
 gulp.task('install', ['bower'], function() {
-  console.log("todo");
+  var install = require('./install');
 });
 
 
