@@ -1,7 +1,7 @@
 var service = {};
 service.server = 'http://localhost:3000';
 service.api = 'api';
-service.url = service.server + '/' + service.db;
+service.url = service.server + '/' + service.api;
 
 // load frame
 service.load = function (id, cb) {
