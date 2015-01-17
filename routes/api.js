@@ -38,7 +38,7 @@ router.get('/help', function (req, res) {
 });
 
 // get all frames
-router.get('/f/', function (req, res) {
+router.get('/f', function (req, res) {
     Frame.find({}).select('_id project number date').exec(function(err, frames) {
         res.send(frames);
     });
