@@ -13,7 +13,8 @@
   ],
   "dependencies": {
     "paper": "0.9.x",
-    "bootstrap": "3.x"
+    "bootstrap": "3.x",
+    "jquery": "2.x"
   },
   "license": "MIT",
   "ignore": [

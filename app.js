@@ -37,6 +37,11 @@ app.use('/src/js/server.js', function(req, res, next) {
     var c = fs.readFileSync(__dirname + '/src/js/server.js', {encoding: 'utf8'});
     res.send(c);
 });
+app.use('/src/lib/jquery/dist/jquery.js', function(req, res, next) {
+    var fs = require('fs');
+    var c = fs.readFileSync(__dirname + '/src/lib/jquery/dist/jquery.js', {encoding: 'utf8'});
+    res.send(c);
+});
 
 
 /// catch 404 and forward to error handler
