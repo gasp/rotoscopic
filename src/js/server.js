@@ -16,7 +16,11 @@ var createThumbnail = function (obj, on) {
 	if(typeof(on) === 'function')
 		$a.on('click', on);
 	return $a;
-}
+};
+
+var unselect = function () {
+	$('*.active', $('#users, #projects, #frames')).removeClass('active');
+};
 
 var users = {
 	create: function () {},
@@ -38,6 +42,7 @@ var users = {
 	update: function () {},
 	delete: function () {},
 	select: function ($el) {
+		unselect();
 		$el.addClass('active');
 	}
 };
@@ -62,6 +67,7 @@ var projects = {
 	update: function () {},
 	delete: function () {},
 	select: function ($el) {
+		unselect();
 		$el.addClass('active');
 	}
 };
@@ -86,6 +92,7 @@ var frames = {
 	update: function () {},
 	delete: function () {},
 	select: function ($el) {
+		unselect();
 		$el.addClass('active');
 	}
 };
