@@ -4,7 +4,8 @@ service.api = 'api';
 service.url = service.server + '/' + service.api;
 
 // load frame
-service.load = function (id, cb) {
+service.frame = {};
+service.frame.load = function (id, cb) {
 	$.ajax({
 		url: service.url + '/f/' + id,
 		crossDomain: true,
@@ -15,7 +16,7 @@ service.load = function (id, cb) {
 	});
 };
 
-service.save = function(data) {
+service.frame.save = function(data) {
 	$.ajax({
 		url: service.url + '/f/',
 		crossDomain: true,
@@ -27,7 +28,7 @@ service.save = function(data) {
 };
 
 // list project frames
-service.list = function (id, cb) {
+service.frame.list = function (id, cb) {
 	$.ajax({
 		url: service.url + '/p/f/' + id,
 		crossDomain: true,
@@ -40,7 +41,8 @@ service.list = function (id, cb) {
 
 
 // list projects
-service.projects = function (cb) {
+service.project = {};
+service.project.list = function (cb) {
 	$.ajax({
 		url: service.url + '/p/',
 		crossDomain: true,

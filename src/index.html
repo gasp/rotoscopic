@@ -12,10 +12,15 @@ window.paperscript = {};
 <script type="text/javascript" src="lib/paper/dist/paper-full.js"></script>
 <script type="text/paperscript" canvas="lighttable" src="ps/table.js"></script>
 
+<script type="text/javascript" src="js/utils.js"></script>
+
 <script type="text/javascript" src="js/service.js"></script>
+<script type="text/javascript" src="js/projects.js"></script>
 <script type="text/javascript">
 
 $(function() {
+	projects.display();
+
 	$('.btn.next').on('click',function() {
 		paperscript.next();
 	});
