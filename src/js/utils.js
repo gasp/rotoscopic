@@ -22,11 +22,11 @@ if (!Array.prototype.str2int) {
 
 			}
 			else {
-				if(isNaN(parseInt(val))) {
+				if(isNaN(parseInt(val, 10))) {
 					console.log(val);
 					throw new TypeError();
 				}
-				res.push(parseInt(val))
+				res.push(parseInt(val, 10))
 			}
 		};
 
