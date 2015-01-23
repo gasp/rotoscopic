@@ -24,14 +24,51 @@ $(function() {
 	$('.btn.next').on('click',function() {
 		paperscript.next();
 	});
+	$('.btn.load').on('click',function() {
+		service.list(lighttable.context.project, function (data) {
+			console.log('listing frames on project: ', data);
+			paperscript.import(data.paths);
+		})
+	});
+	$('.btn.lf2').on('click', function() {
+		var frameid = 4;
+		service.frame.load(frameid, function(data) {
+			console.log('loaded %d paths from frame %d',data.paths.length, frameid);
+			paperscript.import(data.paths);
+		});
+	});
+	$('.btn.save').on('click', function () {
+		var paths = JSON.parse(paperscript.export())[1].children;
+		var data = {
+			project: lighttable.context.project,
+			user: lighttable.context.project,
+			number: lighttable.context.project,
+			paths: paths
+		};
+		service.frame.save(data)
+	});
+
 });
 
 </script>
 </head>
 <body>
-<section class="container">
+<section class="container projects">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="">load a project</div>
+			<ul>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="container lighttable">
 <div class="row">
 	<div class="col-md-12">
+		<button class="btn load">load</button>
+		<button class="btn lf2">load frame 2</button>
+		<button class="btn save">save</button>
 		<button class="btn undo">undo</button>
 		<button class="btn redo">redo</button>
 		<button class="btn next">next frame</button>
