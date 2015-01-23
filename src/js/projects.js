@@ -24,7 +24,7 @@ projects.select = function (id) {
 	lighttable.context.project = id;
 
 	var numbers = [];
-	service.project.list(id, function(frames) {
+	service.frame.list(id, function(frames) {
 		var fl = frames.length;
 		console.log('%d frames to import', fl);
 		for (var i = 0; i < fl; i++) {
