@@ -1,6 +1,7 @@
 // freepen tool
 var freepen = new Tool();
-console.log(freepen)
+console.log(freepen);
+freepen.minDistance = 2;
 
 freepen.name = 'freepen';
 freepen.options = {
