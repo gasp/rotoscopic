@@ -1,0 +1,11 @@
+{
+	"env": "dev",
+	"front": {
+		"port": 8080,
+		"host": "localhost"
+	},
+	"api": {
+		"port": 3000,
+		"host": "localhost"
+	}
+}
