@@ -1,4 +1,14 @@
 var http = require('http');
+var config = require('../lib/config');
+var app = require('../app');
+
+describe("proper configuration", function() {
+  it("should have an api", function() {
+    expect(config.api).toBeDefined();
+    expect(config.api.port).toBeDefined();
+    expect(config.api.host).toBeDefined();
+  });
+});
 
 describe("server available", function() {
 
