@@ -1,5 +1,5 @@
 var http = require('http');
-var config = require('../lib/config');
+var config = require('../lib/configure');
 var app = require('../app');
 
 describe("proper configuration", function() {
