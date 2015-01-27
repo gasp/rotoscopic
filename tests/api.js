@@ -15,6 +15,20 @@ describe("proper configuration", function() {
   });
 });
 
+describe("server boot", function() {
+  it("should run", function(done) {
+    var server = app.listen(config.api.port, function() {
+      // it is running
+      expect(true).toBeTruthy();
+      server.close(function() {
+        // it is closed
+        expect(true).toBeTruthy();
+        done();
+      });
+    });
+  });
+});
+
 describe("server available", function() {
 
   var host = {
