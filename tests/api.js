@@ -1,4 +1,7 @@
 var http = require('http');
+
+process.env.NODE_ENV = 'tests';
+
 var config = require('../lib/configure');
 var app = require('../app');
 
@@ -7,6 +10,8 @@ describe("proper configuration", function() {
     expect(config.api).toBeDefined();
     expect(config.api.port).toBeDefined();
     expect(config.api.host).toBeDefined();
+    expect(config.api.port).toBe(3987);
+    expect(config.api.host).toBe("localhost");
   });
 });
 
